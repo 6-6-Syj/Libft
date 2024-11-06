@@ -1,14 +1,14 @@
 #include "libft.h"
 
-int	ft_isascii(int c)
+int	ft_isprint(int c)
 {
-	if (c >= 0 && c <= 127)
+	if (c >= 32 && c <= 126)
 		return (1);
 	return(0);
 }
 
 int	main()
 {
-	ft_isascii('f');
+	ft_isprint('4');
 	return(0);
 }

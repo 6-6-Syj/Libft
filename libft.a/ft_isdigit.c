@@ -1,13 +1,9 @@
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {
 	if (c >= 0 && c <= 9)
-	{
-		printf("1");
 		return(1);
-	}
-	printf("0");
 	return(0);
 }
 
