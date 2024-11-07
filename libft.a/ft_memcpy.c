@@ -19,17 +19,11 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	i = 0;
 	dest1 = dest;
-	src1 = src1;
+	src1 = src;
 	while(i < n)
 	{
 		dest1[i] = src1[i];
 		i++;
 	}
 	return(dest1);
-}
-
-int	main()
-{
-	ft_memcpy("Salut,  les gars", "Bonjour", 7);
-	return(0);
 }

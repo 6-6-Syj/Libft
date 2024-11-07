@@ -17,9 +17,3 @@ int	ft_isprint(int c)
 		return (1);
 	return(0);
 }
-
-int	main()
-{
-	ft_isprint('4');
-	return(0);
-}

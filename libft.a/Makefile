@@ -1,11 +1,21 @@
 NAME = libft.a
 
 SRCS = ft_isalnum.c	\
-		tester.c	\
+	ft_isalpha.c	\
+	ft_isascii.c	\
+	ft_isdigit.c	\
+	ft_isprint.c	\
+	ft_memcpy.c		\
+	tester.c		\
 
 
 OBJS = ft_isalnum.o	\
-		tester.o	\
+	ft_isalpha.o	\
+	ft_isascii.o	\
+	ft_isdigit.o	\
+	ft_isprint.o	\
+	ft_memcpy.o		\
+	tester.o		\
 
 CC = cc
 FLAGS = -Wall -Werror -Wextra
