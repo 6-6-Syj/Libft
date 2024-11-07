@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 #include <stdio.h>
 #include <string.h>
-#include "libft.h"
 #include <ctype.h>
+#include "libft.h"
 
 // int	main()
 // {
@@ -23,10 +23,13 @@
 
 int	main()
 {
-    printf("%i", (ft_isalnum('g')));
-    printf("%i", (isalnum('g')));
+    printf("ft " "%i\n", ft_isalnum('g'));
+    printf("V " "%i\n\n", isalnum('g'));
 
-    printf("%i", (ft_isalnum(0)));
-    printf("%i", (isalnum(0)));
+    printf("ft " "%i\n", ft_isalnum(2));
+    printf("V " "%i\n\n", isalnum(2));
+
+    printf("ft " "%i\n", ft_isalnum('%'));
+    printf("V " "%i\n\n", isalnum('%'));
 	return (0);
 }

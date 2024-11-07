@@ -1,11 +1,11 @@
 NAME = libft.a
 
 SRCS = ft_isalnum.c	\
-	tester.c		\
+		tester.c	\
 
 
 OBJS = ft_isalnum.o	\
-	tester.o		\
+		tester.o	\
 
 CC = cc
 FLAGS = -Wall -Werror -Wextra
