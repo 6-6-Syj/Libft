@@ -1,5 +1,6 @@
-#ifndef LIBFT.H
-#define LIBFT.H
+#ifndef LIBFT_H
+#define LIBFT_H
+#include <stddef.h>
 
 int	ft_isalpha(int c);
 int	ft_isdigit(int c);

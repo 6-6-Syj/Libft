@@ -19,9 +19,3 @@ int	ft_isalnum(int c)
 		return(1);
 	return(0);
 }
-
-int	main()
-{
-	ft_isalnum('g');
-	return (0);
-}
