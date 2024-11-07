@@ -6,23 +6,21 @@ SRCS = ft_isalnum.c	\
 	ft_isdigit.c	\
 	ft_isprint.c	\
 	ft_memcpy.c		\
+	ft_memset.c		\
+	ft_strlen.c		\
 	tester.c		\
 
 
-OBJS = ft_isalnum.o	\
-	ft_isalpha.o	\
-	ft_isascii.o	\
-	ft_isdigit.o	\
-	ft_isprint.o	\
-	ft_memcpy.o		\
-	tester.o		\
+OBJS = $(SRCS:.c=.o)
 
-CC = cc
+CC = gcc
 FLAGS = -Wall -Werror -Wextra
-RM = rm -f 
+RM = rm -f
 HEADER = libft.h
+CPPFLAGS = -I.
 AR = ar
 ARFLAGS = -r -c -s
+
 
 all : $(NAME)
 

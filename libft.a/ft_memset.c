@@ -13,19 +13,15 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	int		i;
+	size_t		i;
+	unsigned char	*temp_s;
 
 	i = 0;
+	temp_s = (unsigned char *)s;
 	while(i < n)
 	{
-		(char *)s[i] = c;
+		temp_s[i] = (unsigned char)c;
 		i++;
 	}
 	return(s);
-}
-
-int	main()
-{
-	ft_memset("Bonjour les crapules", 10, 7);
-	return(0);
 }
