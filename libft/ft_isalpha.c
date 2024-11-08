@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmagand <jmagand@student.42.fr>            #+#  +:+       +#+        */
+/*   By: jmagand <jmagand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-11-07 07:53:47 by jmagand           #+#    #+#             */
-/*   Updated: 2024-11-07 07:53:47 by jmagand          ###   ########.fr       */
+/*   Created: 2024/11/07 07:53:47 by jmagand           #+#    #+#             */
+/*   Updated: 2024/11/08 19:00:41 by jmagand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_isalpha(int c)

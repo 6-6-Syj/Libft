@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmagand <jmagand@student.42.fr>            #+#  +:+       +#+        */
+/*   By: jmagand <jmagand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-11-07 07:53:44 by jmagand           #+#    #+#             */
-/*   Updated: 2024-11-07 07:53:44 by jmagand          ###   ########.fr       */
+/*   Created: 2024/11/07 07:53:44 by jmagand           #+#    #+#             */
+/*   Updated: 2024/11/08 18:53:43 by jmagand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_isalnum(int c)
 {
-	if ((c >= 'A' && c <= 'Z') 
+	if ((c >= 'A' && c <= 'Z')
 		|| (c >= 'a' && c <= 'z')
 		|| (c >= 48 && c <= 57))
-		return(1);
-	return(0);
+		return (1);
+	return (0);
 }
