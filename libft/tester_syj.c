@@ -87,17 +87,30 @@ int	main()
     // --------------------------------------------------------
 
     // ft_memset
-    unsigned char s[] = "Yo mec bene";
-    ft_memset(s, 10, 7);
+    // unsigned char s[] = "Yo mec bene";
+    // ft_memset(s, 10, 7);
     
-    int i = 0;
-    while(s[i] != '\0')
-    {
-      printf("%d\n", s[i]);
-      i++;
-    }
+    // int i = 0;
+    // while(s[i] != '\0')
+    // {
+    //   printf("%d\n", s[i]);
+    //   i++;
+    // }
 
     // ft_bzero
+    // unsigned char s[] = "Yo mec bene";
+    // ft_bzero(s, 5);
+    
+    // int i = 0;
+    // while(s[i] != '\0')
+    // {
+    //   printf("%d\n", s[i]);
+    //   i++;
+    // }
+
+    // ft_memmove
+    // 	ft_memmove("Saluuuut", "Bonsoir", 4);
+    // 	return(0);
 
 	return (0);
 }

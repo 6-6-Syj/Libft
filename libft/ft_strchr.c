@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmagand <jmagand@student.42.fr>            #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-11-07 07:54:03 by jmagand           #+#    #+#             */
-/*   Updated: 2024-11-07 07:54:03 by jmagand          ###   ########.fr       */
+/*   Created: 2024-11-07 07:54:08 by jmagand           #+#    #+#             */
+/*   Updated: 2024-11-07 07:54:08 by jmagand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strchr(const char *str, int c)
 {
-	size_t		i;
-	char	*dest1;
-	char	*src1;
+	int		i;
+	char	*str2;
 
 	i = 0;
-	dest1 = dest;
-	src1 = src;
-	while(i < n)
+	str2 = (char *) str;
+	while(str2[i] != '\0')
 	{
-		dest1[i] = src1[i];
+		if(str2[i] == c)
+			return(&str2[i]);
 		i++;
 	}
-	return(dest1);
+	return (NULL);
 }
 
-int	main()
-{
-	ft_memmove("Saluuuut", "Bonsoir", 4);
-	return(0);
-}

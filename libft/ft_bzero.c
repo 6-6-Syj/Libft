@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmagand <jmagand@student.42.fr>            #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-11-07 07:54:21 by jmagand           #+#    #+#             */
-/*   Updated: 2024-11-07 07:54:21 by jmagand          ###   ########.fr       */
+/*   Created: 2024-11-07 07:52:18 by jmagand           #+#    #+#             */
+/*   Updated: 2024-11-07 07:52:18 by jmagand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strrchr(char *str, int c)
+void	ft_bzero(void *s, size_t n)
 {
-	int		i;
-	char	*str2;
+	size_t		i;
+	unsigned char	*temp_s;
 
-	/* strlen à faire pour partir à l'envers */
 	i = 0;
-	str2 = str;
-	while()
+	temp_s = (unsigned char *)s;
+	while(i < n)
+	{
+		temp_s[i] = 0;
+		i++;
+	}
 }

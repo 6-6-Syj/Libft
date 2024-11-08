@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmagand <jmagand@student.42.fr>            #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-11-07 07:54:15 by jmagand           #+#    #+#             */
-/*   Updated: 2024-11-07 07:54:15 by jmagand          ###   ########.fr       */
+/*   Created: 2024-11-07 07:54:21 by jmagand           #+#    #+#             */
+/*   Updated: 2024-11-07 07:54:21 by jmagand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-/* REPLACE BY STRLEN (J) */
-
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+char	*ft_strrchr(const char *str, int c)
 {
-	size_t	i;
+	size_t	size;
+	char	*str2;
 
-	i = 0;
-	if(size == 0)
-		return(ft_strlen(src));
-	while(src[i] != "/0" && i < size - 1)
+	str2 = (char *) str;
+	size = ft_strlen(str2);
+	while(size != 0)
 	{
-		dest[i] = src[i];
-		i++;
+		if(str2[size] == c)
+			return(&str2[size]);
+		size--;
 	}
-	dest[i] = "/0";
-	/* while(src[j] != "/0")
-		j++;
-	return(j);
-	*/
+	return (NULL);
 }

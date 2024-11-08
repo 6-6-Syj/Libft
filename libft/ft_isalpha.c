@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmagand <jmagand@student.42.fr>            #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-11-07 07:54:12 by jmagand           #+#    #+#             */
-/*   Updated: 2024-11-07 07:54:12 by jmagand          ###   ########.fr       */
+/*   Created: 2024-11-07 07:53:47 by jmagand           #+#    #+#             */
+/*   Updated: 2024-11-07 07:53:47 by jmagand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-/* TO DO */
-
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+int	ft_isalpha(int c)
 {
-	dest[i] = "/0";
-	return(i);
-}
-
-int	main()
-{
-	ft_strlcat("salut c'moi", "66syj", 5);
-	return(0);
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+		return (1);
+	return (0);
 }

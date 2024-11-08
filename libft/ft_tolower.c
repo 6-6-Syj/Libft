@@ -1,36 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmagand <jmagand@student.42.fr>            #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-11-07 07:54:08 by jmagand           #+#    #+#             */
-/*   Updated: 2024-11-07 07:54:08 by jmagand          ###   ########.fr       */
+/*   Created: 2024-11-07 07:54:24 by jmagand           #+#    #+#             */
+/*   Updated: 2024-11-07 07:54:24 by jmagand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strchr(char *str, int c)
+int     ft_tolower(int c)
 {
-	int		i;
-	char	*str2;
-
-	i = 0;
-	str2 = str;
-	while(str[i] != "/0")
-	{
-		if(str[i] == c)
-		{
-			return(&s2[i]);
-		}
-		i++;
-	}
-	return (NULL);
+	if(c >= 65 && c <= 90)
+		c = c + 32;
+	return(c);
 }
 
-int	main()
-{
-	ft_strchr("Salut c'est moi", 97);
-	return(0);
-}
