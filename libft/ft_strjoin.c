@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmagand <jmagand@student.42.fr>            #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-11-12 17:08:23 by jmagand           #+#    #+#             */
-/*   Updated: 2024-11-12 17:08:23 by jmagand          ###   ########.fr       */
+/*   Created: 2024-11-13 11:32:37 by jmagand           #+#    #+#             */
+/*   Updated: 2024-11-13 11:32:37 by jmagand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdlib.h"
+#include <stdlib.h>
 
-void    *ft_calloc(size_t nmemb, size_t size)
+
+char    *ft_strjoin(char const *s1, char const *s2)
 {
-    size_t  i;
-    char  *arr;
+    size_t          i;
+    size_t          j;
+    char   *temp_s;
 
     i = 0;
-    arr = malloc(nmemb * size);
-    if ((size == 0 || nmemb == 0) || size == 0 && nmemb == 0)
+    temp_s = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+    if (temp_s == NULL)
         return (NULL);
-    if (arr == NULL)
-        return (NULL);
-    while (i < nmemb * size)
+    while (s1[i] != '\0')
     {
-        arr[i] = '\0';
+        temp_s[i] = (char) s1[i];
         i++;
     }
-    return (arr);
-    free (arr);
+    j = 0;
+    while (s2[j] != '\0')
+    {
+        temp_s[i+j] = (char) s2[j];
+        j++;
+    }
+    temp_s[i+j] = '\0';
+    return (temp_s);
 }
+
