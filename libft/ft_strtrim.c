@@ -13,62 +13,41 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static int  compare(char *s1, char *s2)
+static int  compare(char *set, char c)
 {
     size_t      i;
-    size_t      j;
 
     i = 0;
-    j = 0;
-    while (s1[i] != '\0')
+    while (set[i] != '\0')
     {
-        while (s2[j] != '\0')
-        {
-            if (s1[i] == s2[j])
-                return (1);
-            j++;
-        }
+        if (c == set[i])
+            return (1);
         i++;
     }
     return (0);
 }
 
-static int  ft_start()
-{
-    size_t  i;
-    size_t  j;
-
-    i = 0;
-    j = 0;
-    while (s1[i] != s2[j] || s2[j] != '\0')
-    {
-        j++;
-    }
-    return ()
-}
-
-static int  ft_end()
-{
-    
-}
-
 char    *ft_strtrim(char const *s1, char const *set)
 {
+    size_t      start;
+    size_t      end;
     size_t      i;
-    size_t      j;
-    size_t      count;
     char        *temp_s;
 
+    end = (ft_strlen(s1) - 1);
     i = 0;
-    j = 0;
-    count = 0;
-    while (s1[i] != '\0')
-    {
-        if (compare(s1, set))
-            count++;
-        i++;
-    }
-    temp_s = malloc((ft_strlen(s1) - count) * sizeof(char) + 1);
+    while (compare((char *)set, s1[start]))
+        start++;
+    while (compare((char *)set, s1[end]))
+        end--;
+    temp_s = malloc((ft_strlen(s1)) * sizeof(char) + 1);
     if (temp_s == NULL)
         return (NULL);
+    while (temp_s[i] != '\0')
+    {
+        temp_s[i] = s1[start + i];
+        i++;
+    }
+    temp_s[i] = '\0';
+    return (temp_s);
 }
