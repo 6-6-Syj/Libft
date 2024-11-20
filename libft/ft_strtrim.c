@@ -32,8 +32,6 @@ static char  *check(const char *s1, size_t start, size_t end)
     char        *temp_s;
     size_t      i;
         
-    if (end <= 0 || start >= end)
-        return (ft_strdup(""));
     temp_s = malloc((end - start + 1) * sizeof(char) + 1);
     if (!temp_s)
         return (NULL);
@@ -54,13 +52,17 @@ char    *ft_strtrim(const char *s1, const char *set)
     size_t      len;
 
     len = ft_strlen(s1);
-    end = (ft_strlen(s1) - 1);
+    end = len - 1;
     start = 0;
     if (!len || !set)
-        malloc(0);
+        return (ft_strdup(""));
     while (compare((char *)set, s1[start]))
         start++;
     while (compare((char *)set, s1[end]))
-        end--;
+        {
+                if (end <= 0 || start >= end)
+                    return (ft_strdup(""));
+                end--;
+        }
     return (check(s1, start, end));
 }

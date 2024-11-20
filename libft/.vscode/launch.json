@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/jmagand/Documents/git_libft.a/libft.a",
-      "program": "/home/jmagand/Documents/git_libft.a/libft.a/build/Debug/outDebug",
+      "cwd": "/home/jmagand/Documents/git_libft.a/libft",
+      "program": "/home/jmagand/Documents/git_libft.a/libft/a.out",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
