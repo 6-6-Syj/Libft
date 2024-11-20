@@ -18,7 +18,7 @@ char    *ft_strdup(const char *s)
     size_t  i;
     char  *arr;
 
-    arr = malloc(sizeof(char) * ft_strlen(s) + 1);
+    arr = ft_calloc(sizeof(char), ft_strlen(s) + 1);
     i = 0;
     if (arr == NULL)
         return (NULL);
@@ -27,7 +27,5 @@ char    *ft_strdup(const char *s)
         arr[i] = s[i];
         i++;
     }
-    arr[i] = '\0';
     return (arr);
-    free (arr);
 }

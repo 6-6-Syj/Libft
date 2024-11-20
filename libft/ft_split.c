@@ -13,7 +13,36 @@
 #include "libft.h"
 #include <stdlib.h>
 
-char    **ft_split(char const *s, char c)
-{
 
-}
+// AJOUTER TRIM AVANT 
+
+// static int  compare(char s, char c)
+// {
+//     if (c == s[i])
+//             return (1);
+//     return (0);
+// }
+
+// static int  count_words(char *s, char c)
+// {
+//     size_t  i;
+//     size_t  count;
+
+//     i = 0;
+//     count = 0;
+//     while (s[i])
+//     {
+//         if (compare(s, c))
+//             count++;
+//         i++;
+//     }
+//     return (count);
+// }
+
+// char    **ft_split(char const *s, char c)
+// {
+//     char    **arr;
+//     size_t  i;
+
+//     i = 0;
+// }
