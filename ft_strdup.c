@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmagand <jmagand@student.42.fr>            #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-11-12 18:34:15 by jmagand           #+#    #+#             */
-/*   Updated: 2024-11-12 18:34:15 by jmagand          ###   ########.fr       */
+/*   Created: 2024-11-12 17:46:53 by jmagand           #+#    #+#             */
+/*   Updated: 2024-11-12 17:46:53 by jmagand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-void	ft_putendl_fd(char *s, int fd)
+char	*ft_strdup(const char *s)
 {
 	size_t	i;
+	char	*arr;
 
+	arr = ft_calloc(sizeof(char), ft_strlen(s) + 1);
 	i = 0;
-	while (s[i])
+	if (arr == NULL)
+		return (NULL);
+	while (i < ft_strlen(s))
 	{
-		write(fd, &s[i], 1);
+		arr[i] = s[i];
 		i++;
 	}
-	write(fd, "\n", 1);
+	return (arr);
 }

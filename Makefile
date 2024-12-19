@@ -35,9 +35,6 @@ SRCS = ft_atoi.c	\
 	ft_putnbr_fd.c	\
 	ft_putstr_fd.c	\
 
-
-OBJS = $(SRCS:.c=.o)
-
 CC = cc
 FLAGS = -Wall -Werror -Wextra
 RM = rm -f
@@ -45,6 +42,10 @@ HEADER = libft.h
 AR = ar
 ARFLAGS = -r -c -s
 
+OBJS = $(SRCS:.c=.o)
+
+%.o: %.c $(HEADER) Makefile
+	$(CC) $(FLAGS) -c $< -o $@
 
 all : $(NAME)
 
@@ -58,3 +59,5 @@ fclean : clean
 	$(RM) $(NAME)
 
 re : fclean all
+
+.PHONY : clean fclean re name

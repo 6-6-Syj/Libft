@@ -1,42 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmagand <jmagand@student.42.fr>            #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-11-12 18:45:48 by jmagand           #+#    #+#             */
-/*   Updated: 2024-11-12 18:45:48 by jmagand          ###   ########.fr       */
+/*   Created: 2024-11-12 17:08:23 by jmagand           #+#    #+#             */
+/*   Updated: 2024-11-12 17:08:23 by jmagand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-void	ft_putnbr_fd(int n, int fd)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	int	nbr;
+	size_t	i;
+	void	*arr;
 
-	nbr = 0;
-	if (n == -2147483648)
-		write(fd, "-2147483648", 11);
-	else if (n < 0)
+	i = 0;
+	if ((size == 0 || nmemb == 0))
+		return (malloc(0));
+	if (nmemb * size / nmemb != size)
+		return (NULL);
+	arr = malloc(nmemb * size);
+	if (!arr)
+		return (arr);
+	while (i < nmemb * size)
 	{
-		write(fd, "-", 1);
-		n = -n;
-		ft_putnbr_fd(n, fd);
+		((unsigned char *) arr)[i] = 0;
+		i++;
 	}
-	else
-	{
-		if (n > 9)
-		{
-			ft_putnbr_fd(n / 10, fd);
-			ft_putnbr_fd(n % 10, fd);
-		}
-		else
-		{
-			nbr = n + 48;
-			write(fd, &nbr, 1);
-		}
-	}
+	return (arr);
 }
