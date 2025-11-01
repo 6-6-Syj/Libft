@@ -114,17 +114,17 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c Makefile $(HEADER)
 clean:
 	@rm -rf $(OBJ_DIR)
 	@echo "$(MAGENTA)$(BOLD)🧹 Cleaning up project files...$(RESET)"
-	@echo "$(CYAN) ├─ Removed object files, and dependencies$(RESET)"
-	@echo "$(CYAN) └─ Cleaned build directory: $(OBJ_DIR)$(RESET)"
+	@echo "$(CYAN)    ├─ Removed object files, and dependencies$(RESET)"
+	@echo "$(CYAN)    └─ Cleaned build directory: $(OBJ_DIR)\n$(RESET)"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "$(GREEN)$(BOLD)\n🗑️ Full clean-up completed:$(RESET)"
-	@echo "$(CYAN) └─ Static library removed: $(NAME)\n$(RESET)"
+	@echo "$(GREEN)$(BOLD)🗑️  Full clean-up completed:$(RESET)"
+	@echo "$(CYAN)    └─ Static library removed: $(NAME)\n$(RESET)"
 
 re:
-	$(MAKE) fclean
-	$(MAKE) all
+	@$(MAKE) fclean
+	@$(MAKE) all
 
 .PHONY: all clean fclean re
 
