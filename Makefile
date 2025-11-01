@@ -98,12 +98,12 @@ endef
 #------------------------------------------------#
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(HEADER) Makefile
 	@echo "\n$(MAGENTA)$(BOLD)📚 Creating library...$(RESET)"
 	@$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 	@echo "$(GREEN)$(BOLD)\n✅ Library created !$(RESET)"
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c Makefile
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c Makefile $(HEADER)
 	$(call create_dir,$@)
 	@echo " → Compiling $(YELLOW)$<$(RESET)"
 	@$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@

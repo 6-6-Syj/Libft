@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils                                    :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmagand <jmagand@student.42.fr>            #+#  +:+       +#+        */
+/*   By: jmagand <jmagand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-11-21 19:32:20 by jmagand           #+#    #+#             */
-/*   Updated: 2024-11-21 19:32:20 by jmagand          ###   ########.fr       */
+/*   Created: 2024/11/21 19:32:20 by jmagand           #+#    #+#             */
+/*   Updated: 2025/11/01 21:35:43 by jmagand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	int_len(long nb)
 	return (count);
 }
 
-int	ft_putnbr(int n, int fd)
+int	ft_putnbr_pf(int n, int fd)
 {
 	int	count;
 
@@ -47,11 +47,11 @@ int	ft_putnbr(int n, int fd)
 	if (n < 0)
 	{
 		n *= -1;
-		count = ft_putchar('-', 1);
+		count = ft_putchar_pf('-', 1);
 	}
 	if (n > 9)
-		ft_putnbr(n / 10, 1);
-	ft_putchar(n % 10 + 48, 1);
+		ft_putnbr_pf(n / 10, 1);
+	ft_putchar_pf(n % 10 + 48, 1);
 	return (int_len(n) + count);
 }
 
@@ -61,8 +61,8 @@ int	ft_putnbr_u(unsigned int n)
 
 	count = 0;
 	if (n > 9)
-		ft_putnbr(n / 10, 1);
-	ft_putchar(n % 10 + 48, 1);
+		ft_putnbr_pf(n / 10, 1);
+	ft_putchar_pf(n % 10 + 48, 1);
 	return (int_len(n) + count);
 }
 

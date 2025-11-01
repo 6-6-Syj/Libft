@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_extend.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmagand <jmagand@student.42.fr>            #+#  +:+       +#+        */
+/*   By: jmagand <jmagand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-11-21 19:07:47 by jmagand           #+#    #+#             */
-/*   Updated: 2024-11-21 19:07:47 by jmagand          ###   ########.fr       */
+/*   Created: 2024/11/21 19:07:47 by jmagand           #+#    #+#             */
+/*   Updated: 2025/11/01 21:30:29 by jmagand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putchar(char c, int fd)
+int	ft_putchar_pf(char c, int fd)
 {
 	write(fd, &c, 1);
 	return (1);
 }
 
-int	ft_putstr(char *str, int fd)
+int	ft_putstr_pf(char *str, int fd)
 {
 	if (str == NULL)
 	{
@@ -48,8 +48,8 @@ int	ft_putadress(void *nbr, char *base)
 	count = 0;
 	res = (unsigned long long) nbr;
 	if (nbr == 0)
-		return (ft_putstr("(nil)", 1));
-	count += ft_putstr("0x", 1);
+		return (ft_putstr_pf("(nil)", 1));
+	count += ft_putstr_pf("0x", 1);
 	count += ft_putnbr_base_ul(res, base);
 	return (count);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_float.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmagand <jmagand@student.42.fr>            #+#  +:+       +#+        */
+/*   By: jmagand <jmagand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-02-03 18:55:23 by jmagand           #+#    #+#             */
-/*   Updated: 2025-02-03 18:55:23 by jmagand          ###   ########.fr       */
+/*   Created: 2025/02/03 18:55:23 by jmagand           #+#    #+#             */
+/*   Updated: 2025/11/01 21:34:24 by jmagand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	ft_handle_precision(int *count, int precision, double frac_part,
 		{
 			frac_part *= 10;
 			digit = (int)frac_part;
-			*count += ft_putchar(digit + '0', fd);
+			*count += ft_putchar_pf(digit + '0', fd);
 			frac_part -= digit;
 			i++;
 		}
@@ -48,7 +48,7 @@ int	ft_putnbr_float(double n, int precision, int fd)
 	}
 	int_part = (long long)n;
 	frac_part = n - int_part;
-	count += ft_putnbr(int_part, fd);
+	count += ft_putnbr_pf(int_part, fd);
 	if (precision == -1)
 		precision = 6;
 	ft_handle_precision(&count, precision, frac_part, fd);

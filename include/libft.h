@@ -6,7 +6,7 @@
 /*   By: jmagand <jmagand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 18:53:55 by jmagand           #+#    #+#             */
-/*   Updated: 2025/11/01 21:17:00 by jmagand          ###   ########.fr       */
+/*   Updated: 2025/11/01 21:34:55 by jmagand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_list
 
 int		ft_atoi(const char *nptr);
 void	ft_delete_node(t_list *lst, void (*del)(void *));
-void	free_strs(char *str);
+// void	free_strs(char *str);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
@@ -70,9 +70,9 @@ char	*ft_substr(const char *s, unsigned int start, size_t len);
 /* ft_printf */
 int		ft_printf(const char *format, ...);
 int		base_len(char *base);
-int		ft_putchar(char c, int fd);
-int		ft_putstr(char *str, int fd);
-int		ft_putnbr(int n, int fd);
+int		ft_putchar_pf(char c, int fd);
+int		ft_putstr_pf(char *str, int fd);
+int		ft_putnbr_pf(int n, int fd);
 int		ft_putnbr_u(unsigned int n);
 int		ft_putnbr_hex(unsigned int nbr, char *base);
 int		ft_putadress(void *nbr, char *base);

@@ -6,11 +6,11 @@
 /*   By: jmagand <jmagand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:12:13 by jmagand           #+#    #+#             */
-/*   Updated: 2025/11/01 21:18:32 by jmagand          ###   ########.fr       */
+/*   Updated: 2025/11/01 21:36:06 by jmagand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+# include "libft.h"
 # include <stdarg.h>
 
 static int	ft_get_precision(const char *format, size_t *i)
@@ -37,11 +37,11 @@ static int	ft_printf_args(va_list args, const char *format, size_t *i)
 
 	precision = ft_get_precision(format, i);
 	if (format[*i] == 'c')
-		return (ft_putchar(va_arg(args, int), 1));
+		return (ft_putchar_pf(va_arg(args, int), 1));
 	else if (format[*i] == 's')
-		return (ft_putstr(va_arg(args, char *), 1));
+		return (ft_putstr_pf(va_arg(args, char *), 1));
 	else if (format[*i] == 'i' || format[*i] == 'd')
-		return (ft_putnbr(va_arg(args, int), 1));
+		return (ft_putnbr_pf(va_arg(args, int), 1));
 	else if (format[*i] == 'u')
 		return (ft_putnbr_u(va_arg(args, unsigned int)));
 	else if (format[*i] == 'p')
@@ -54,7 +54,7 @@ static int	ft_printf_args(va_list args, const char *format, size_t *i)
 		return (ft_putnbr_hex(va_arg(args, unsigned int),
 				"0123456789ABCDEF"));
 	else if (format[*i] == '%')
-		return (ft_putchar('%', 1));
+		return (ft_putchar_pf('%', 1));
 	else if (format[*i] == 'f')
 		return (ft_putnbr_float(va_arg(args, double), precision, 1));
 	return (0);
@@ -79,7 +79,7 @@ int	ft_printf(const char *format, ...)
 			count += ft_printf_args(args, format, &i);
 		}
 		else
-			count += ft_putchar(format[i], 1);
+			count += ft_putchar_pf(format[i], 1);
 		i++;
 	}
 	va_end (args);
