@@ -1,63 +1,139 @@
-NAME = libft.a
+#------------------------------------------------#
+#					LIBFT						 #
+#------------------------------------------------#
+NAME		= libft.a
+HEADER		= include/libft.h
+MAKEFILE	= Makefile
 
-SRCS = ft_atoi.c	\
-	ft_bzero.c		\
-	ft_calloc.c		\
-	ft_isalnum.c	\
-	ft_isalpha.c	\
-	ft_isascii.c	\
-	ft_isdigit.c	\
-	ft_isprint.c	\
-	ft_itoa.c		\
-	ft_memchr.c		\
-	ft_memcmp.c		\
-	ft_memcpy.c		\
-	ft_memmove.c	\
-	ft_memset.c		\
-	ft_strlcat.c	\
-	ft_strlcpy.c	\
-	ft_strlen.c		\
-	ft_strmapi.c	\
-	ft_split.c		\
-	ft_strchr.c		\
-	ft_strdup.c		\
-	ft_striteri.c	\
-	ft_strjoin.c	\
-	ft_strncmp.c	\
-	ft_strnstr.c	\
-	ft_strrchr.c	\
-	ft_strtrim.c	\
-	ft_substr.c		\
-	ft_toupper.c	\
-	ft_tolower.c	\
-	ft_putchar_fd.c	\
-	ft_putendl_fd.c	\
-	ft_putnbr_fd.c	\
-	ft_putstr_fd.c	\
+#------------------------------------------------#
+#					FILES						 #
+#------------------------------------------------#
+SRC_FILES = 	free_strs				\
+				ft_atof					\
+				ft_atoi					\
+				ft_atoll				\
+				ft_bzero				\
+				ft_calloc				\
+				ft_delete_node			\
+				ft_isalnum				\
+				ft_isalpha				\
+				ft_isascii				\
+				ft_isdigit				\
+				ft_isprint				\
+				ft_itoa					\
+				ft_lst_size				\
+				ft_lstadd_back			\
+				ft_lstadd_front			\
+				ft_lstclear				\
+				ft_memchr				\
+				ft_memcmp				\
+				ft_memcpy				\
+				ft_memmove				\
+				ft_memset				\
+				ft_newlst				\
+				ft_printf_extend		\
+				ft_printf_float			\
+				ft_printf_utils			\
+				ft_printf				\
+				ft_putchar_fd			\
+				ft_putendl_fd			\
+				ft_putnbr_fd			\
+				ft_putstr_fd			\
+				ft_split				\
+				ft_strchr				\
+				ft_strcmp				\
+				ft_strdup				\
+				ft_striteri				\
+				ft_strjoin				\
+				ft_strlcat				\
+				ft_strlcpy				\
+				ft_strlen				\
+				ft_strmapi				\
+				ft_strncmp				\
+				ft_strndup				\
+				ft_strnstr				\
+				ft_strrchr				\
+				ft_strtrim				\
+				ft_substr				\
+				ft_tolower				\
+				ft_toupper				\
+				gnl_utils				\
+				gnl
+				
+#------------------------------------------------#
+#					DIRECTORY					 #
+#------------------------------------------------#
+OBJ_DIR		= .build/
+SRC_DIR		= src/
 
-CC = cc
-FLAGS = -Wall -Werror -Wextra
-RM = rm -f
-HEADER = libft.h
-AR = ar
-ARFLAGS = -r -c -s
+#------------------------------------------------#
+#					PATHS						 #
+#------------------------------------------------#
+SRC = $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
+OBJS = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 
-OBJS = $(SRCS:.c=.o)
+DEP = $(OBJ:.o=.d)
+-include $(DEP)
 
-%.o: %.c $(HEADER) Makefile
-	$(CC) $(FLAGS) -c $< -o $@
+#------------------------------------------------#
+#					FLAGS						 #
+#------------------------------------------------#
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror -g3
+CPPFLAGS 	= -MMD -MP -Iinclude
+MAKEFLAGS	+= --no-print-directory
 
-all : $(NAME)
+AR			= ar
+ARFLAGS		= -r -c -s
+
+#------------------------------------------------#
+#			FUNCTION TO CREATE DIRS 			 #
+#------------------------------------------------#
+define create_dir
+	$(shell mkdir -p $(dir $(1)))
+endef
+
+#------------------------------------------------#
+#					RULES						 #
+#------------------------------------------------#
+all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+	@echo "\n$(MAGENTA)$(BOLD)📚 Creating library...$(RESET)"
+	@$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+	@echo "$(GREEN)$(BOLD)\n✅ Library created !$(RESET)"
 
-clean :
-	$(RM) $(OBJS)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c Makefile
+	$(call create_dir,$@)
+	@echo " → Compiling $(YELLOW)$<$(RESET)"
+	@$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
-fclean : clean
-	$(RM) $(NAME)
+%.o: %.c $(HEADER) Makefile
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
 
-re : fclean all
+clean:
+	@rm -rf $(OBJ_DIR)
+	@echo "$(MAGENTA)$(BOLD)🧹 Cleaning up project files...$(RESET)"
+	@echo "$(CYAN) ├─ Removed object files, and dependencies$(RESET)"
+	@echo "$(CYAN) └─ Cleaned build directory: $(OBJ_DIR)$(RESET)"
 
-.PHONY : clean fclean re name
+fclean: clean
+	@rm -f $(NAME)
+	@echo "$(GREEN)$(BOLD)\n🗑️ Full clean-up completed:$(RESET)"
+	@echo "$(CYAN) └─ Static library removed: $(NAME)\n$(RESET)"
+
+re:
+	$(MAKE) fclean
+	$(MAKE) all
+
+.PHONY: all clean fclean re
+
+#------------------------------------------------#
+#					COLORS						 #
+#------------------------------------------------#
+GREEN			= \033[0;32m
+YELLOW			= \033[1;33m
+CYAN			= \033[0;36m
+MAGENTA			= \033[0;35m
+BOLD    		= \033[1m
+RESET   		= \033[0m

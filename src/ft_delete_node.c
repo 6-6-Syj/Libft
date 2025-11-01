@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_delete_node.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmagand <jmagand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 07:53:59 by jmagand           #+#    #+#             */
-/*   Updated: 2024/11/08 18:53:07 by jmagand          ###   ########.fr       */
+/*   Created: 2025/11/01 20:04:49 by jmagand           #+#    #+#             */
+/*   Updated: 2025/11/01 21:09:54 by jmagand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-int	ft_isprint(int c)
+void	ft_delete_node(t_list *lst, void (*del)(void *))
 {
-	if (c >= 32 && c <= 126)
-		return (1);
-	return (0);
+	del(lst->content);
+	free(lst);
 }

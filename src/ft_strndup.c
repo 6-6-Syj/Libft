@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmagand <jmagand@student.42.fr>            #+#  +:+       +#+        */
+/*   By: jmagand <jmagand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-11-12 17:08:23 by jmagand           #+#    #+#             */
-/*   Updated: 2024-11-12 17:08:23 by jmagand          ###   ########.fr       */
+/*   Created: 2025/05/03 19:47:31 by jmagand           #+#    #+#             */
+/*   Updated: 2025/11/01 20:55:39 by jmagand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_strndup(const char *src, size_t n)
 {
 	size_t	i;
-	void	*arr;
+	char	*dst;
 
-	i = 0;
-	if ((size == 0 || nmemb == 0))
-		return (malloc(0));
-	if (nmemb * size / nmemb != size)
+	if (!src || n <= 0)
 		return (NULL);
-	arr = malloc(nmemb * size);
-	if (!arr)
-		return (arr);
-	while (i < nmemb * size)
+	i = 0;
+	dst = malloc(sizeof(char) * (n + 1));
+	if (!dst)
+		return (NULL);
+	while (i < n)
 	{
-		((unsigned char *) arr)[i] = 0;
+		dst[i] = src[i];
 		i++;
 	}
-	return (arr);
+	dst[i] = '\0';
+	return (dst);
 }

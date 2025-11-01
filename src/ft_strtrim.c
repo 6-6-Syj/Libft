@@ -6,11 +6,12 @@
 /*   By: jmagand <jmagand@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:51:07 by jmagand           #+#    #+#             */
-/*   Updated: 2024/11/19 18:55:22 by jmagand          ###   ########.fr       */
+/*   Updated: 2025/11/01 20:56:02 by jmagand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static int	compare(char *set, char c)
 {
